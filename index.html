@@ -1,25 +1,102 @@
-<audio id="player" controls autoplay></audio>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pages 自動連播播放器</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f4f8; padding: 40px; text-align: center; }
+        .player-container { background: white; padding: 30px; border-radius: 12px; max-width: 450px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h2 { color: #333; }
+        audio { width: 100%; margin: 20px 0; }
+        .playlist { text-align: left; display: flex; flex-direction: column; gap: 10px; }
+        .song-item { background: #f8fafc; padding: 10px; border-radius: 6px; display: flex; align-items: center; cursor: pointer; }
+        .song-item.playing { background: #e6fffa; border: 1px solid #319795; font-weight: bold; }
+        input[type="checkbox"] { margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="player-container">
+    <h2>我的 GitHub 音樂清單</h2>
+    <p id="status">請勾選歌曲，將全自動連播</p>
+    
+    <audio id="audio-player" controls></audio>
+
+    <div class="playlist">
+        <label class="song-item">
+            <input type="checkbox" class="song-checkbox" data-src="https://raw.githubusercontent.com/genji-li.github.io/genji-li.github.io/master/disk1/01.mp3" data-name="第一首歌曲">
+            <span>第一首歌曲</span>
+        </label>
+        
+        <label class="song-item">
+            <input type="checkbox" class="song-checkbox" data-src="https://raw.githubusercontent.com/genji-li.github.io/genji-li.github.io/master/disk1/02.mp3" data-name="第二首歌曲">
+            <span>第二首歌曲</span>
+        </label>
+
+        <label class="song-item">
+            <input type="checkbox" class="song-checkbox" data-src="https://raw.githubusercontent.com/genji-li.github.io/genji-li.github.io/master/disk1/03.mp3" data-name="第三首歌曲">
+            <span>第三首歌曲</span>
+        </label>
+    </div>
+</div>
 
 <script>
-    const player = document.getElementById('player');
+    const audioPlayer = document.getElementById('audio-player');
+    const statusText = document.getElementById('status');
+    const checkboxes = document.querySelectorAll('.song-checkbox');
     
-    // 標準網址放進陣列裡，要幾首有幾首
-    const playlist = [
-        "https://https://genji-li.github.io/disk1/01.mp3",
-        "https://https://genji-li.github.io/disk1/02.mp3",
-        "https://https://genji-li.github.io/disk1/02.mp3"
-    ];
-    let currentTrack = 0;
+    let queue = [];
+    let currentIndex = 0;
 
-    // 播放目前歌曲
-    player.src = playlist[currentTrack];
+    // 監聽勾選
+    checkboxes.forEach(box => {
+        box.addEventListener('change', () => {
+            const wasEmpty = queue.length === 0;
+            
+            // 重新組裝排隊歌單
+            queue = [];
+            checkboxes.forEach(b => {
+                if (b.checked) {
+                    queue.push({ src: b.getAttribute('data-src'), name: b.getAttribute('data-name'), element: b.closest('.song-item') });
+                }
+            });
 
-    // 🌟 網頁原生就支援監聽：播完自動下一首，完全不求人！
-    player.addEventListener('ended', function() {
-        currentTrack++;
-        if (currentTrack < playlist.length) {
-            player.src = playlist[currentTrack];
-            player.play();
+            // 如果原本沒歌在播，現在勾了，就自動開始放
+            if (wasEmpty && queue.length > 0) {
+                currentIndex = 0;
+                playSong(currentIndex);
+            }
+        });
+    });
+
+    function playSong(index) {
+        // 移除所有歌曲的正在播放樣式
+        document.querySelectorAll('.song-item').forEach(el => el.classList.remove('playing'));
+
+        if (index >= queue.length) {
+            statusText.innerText = "🎉 勾選的歌都播完囉！";
+            audioPlayer.src = "";
+            queue = [];
+            checkboxes.forEach(b => b.checked = false); // 清空勾選
+            return;
         }
+
+        currentIndex = index;
+        const currentSong = queue[currentIndex];
+        
+        audioPlayer.src = currentSong.src;
+        statusText.innerText = `🎵 正在播放：${currentSong.name}`;
+        currentSong.element.classList.add('playing');
+        
+        audioPlayer.play().catch(e => console.log("等待點擊播放:", e));
+    }
+
+    // 🌟 網頁原生 ended 監聽，在 GitHub Pages 完美運行，時間到自動跳下一首！
+    audioPlayer.addEventListener('ended', () => {
+        playSong(currentIndex + 1);
     });
 </script>
+
+</body>
+</html>
