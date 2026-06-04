@@ -1,11 +1,25 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自訂連播音樂播放器</title>
-</head>
-    <body>
-      <h1>Hsinlun audio world</h1>
-    </body>
-</html>
+<audio id="player" controls autoplay></audio>
+
+<script>
+    const player = document.getElementById('player');
+    
+    // 標準網址放進陣列裡，要幾首有幾首
+    const playlist = [
+        "https://https://genji-li.github.io/disk1/01.mp3",
+        "https://https://genji-li.github.io/disk1/02.mp3",
+        "https://https://genji-li.github.io/disk1/02.mp3"
+    ];
+    let currentTrack = 0;
+
+    // 播放目前歌曲
+    player.src = playlist[currentTrack];
+
+    // 🌟 網頁原生就支援監聽：播完自動下一首，完全不求人！
+    player.addEventListener('ended', function() {
+        currentTrack++;
+        if (currentTrack < playlist.length) {
+            player.src = playlist[currentTrack];
+            player.play();
+        }
+    });
+</script>
