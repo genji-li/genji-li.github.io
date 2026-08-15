@@ -129,38 +129,108 @@
 
 <div class="player-container">
     <h2>阿綸的英文音樂清單 DISK 2</h2>
-    <p>（DISK 2 歌曲清單保持原狀）</p>
+    <p id="status">請勾選歌曲，將全自動連播</p>
+    
+    <audio id="audio-player" controls></audio>
+
+    <div class="control-bar">
+        <button onclick="toggleAll(true)">全部勾選</button>
+        <button onclick="toggleAll(false)">全部取消</button>
+    </div>
 
     <div class="playlist">
-        <label class="song-item">
-            <input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/fatci1c211prfxlu4jgua/01.mp3?rlkey=mbhu69zbkg8e3uizz25rh5qdz&st=ynfkkdli&raw=1" data-name="第一首歌曲">
-            <span>第一首歌曲</span>
-        </label>
-        
-        <label class="song-item">
-            <input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/eyv5vudg0p50v8bjvxi8o/02.mp3?rlkey=686do6fdla2shtfpu2x9min16&st=rzprxasp&raw=1" data-name="第二首歌曲">
-            <span>第二首歌曲</span>
-        </label>
-
-        <label class="song-item">
-            <input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/s8fmtjateiht7z1bnudhd/03.mp3?rlkey=pwq0zegznsvkr04xssf7snxb2&st=4o4hsbzz&raw=1" data-name="第三首歌曲">
-            <span>第三首歌曲</span>
-        </label>
-		
-		<label class="song-item">
-            <input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/479y11bpm7em42mtl5y42/04.mp3?rlkey=7ebqf60ew3aso82jqaqujcd2h&st=5y29qzfc&raw=1" data-name="第四首歌曲">
-            <span>第四首歌曲</span>
-        </label>
-		
-		<label class="song-item">
-            <input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/xkk54sxdam2n0q79duntt/05.mp3?rlkey=jacwboig79viw28v64wiubeq9&st=88vvn6gu&raw=1" data-name="第五首歌曲">
-            <span>第五首歌曲</span>
-        </label>
-		
-		<label class="song-item">
-            <input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/qqby5768eiknshx85unxh/55-55.mp3?rlkey=lvha99i2js2lua1kzkvggcqde&st=mzbliti6&raw=1" data-name="第55首歌曲">
-            <span>第55首歌曲</span>
-        </label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/xi6k0d45w3xcdc5rfvmyl/01-1.mp3?rlkey=x65ppbggsf6eu3vuk34k3ulw5&st=p7ix1gau&raw=1" data-name="第 1 首歌曲"><span>第 1 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/yjjxp7k0y6dmuj30thb75/02-2.mp3?rlkey=uqz571y0hnqncaavihwlyauv2&st=em8748q8&raw=1" data-name="第 2 首歌曲"><span>第 2 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/u97agi3an3gjf0s99b28k/03-3.mp3?rlkey=szm3b46o4si942i03ilhnf369&st=rywqw0r4&raw=1" data-name="第 3 首歌曲"><span>第 3 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/s8y2u5u74v4f30el13b9i/04-4.mp3?rlkey=stmq4g9dgvertbk441ft7ya39&st=cb6nyoie&raw=1" data-name="第 4 首歌曲"><span>第 4 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/ud3h7n495x2qxuckphclc/05-5.mp3?rlkey=so1xgaqvyw5kpp01nn049vth1&st=ltjl6n22&raw=1" data-name="第 5 首歌曲"><span>第 5 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/1cyz648vni27aipsiyhp9/06-6.mp3?rlkey=6hivxjm9bismdlpu18b0k3fyv&st=ti6lk7xo&raw=1" data-name="第 6 首歌曲"><span>第 6 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/dp1pk4cec0jvswtem2uwd/07-7.mp3?rlkey=b5kvjpkjxpo2o2ouxnu9uotry&st=bc388wkd&raw=1" data-name="第 7 首歌曲"><span>第 7 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/x9xxvzdxcrhweudzcb8my/08-8.mp3?rlkey=5ug9bthkf0b980f3zqsmram2t&st=bvwk360h&raw=1" data-name="第 8 首歌曲"><span>第 8 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/u4fwhud5so0l4s4bvbo0j/09-9.mp3?rlkey=hfv239tm4pzllctku4r6oitse&st=5xhe7ecv&raw=1" data-name="第 9 首歌曲"><span>第 9 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/ln3xr6z1geto9bky9h372/10-10.mp3?rlkey=ibheiw0cqhg9095zwf4y4vj4k&st=4z3axp2l&raw=1" data-name="第 10 首歌曲"><span>第 10 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/z5d70nz75i28x0igk4p8u/11-11.mp3?rlkey=ndyexajrevpe02hnmbmwdrl9i&st=kjgx22s0&raw=1" data-name="第 11 首歌曲"><span>第 11 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/miq737v8fxaqbeiomuy4h/12-12.mp3?rlkey=iea5m16u5iyyqhv39m2t9nyyc&st=bmq70mhr&raw=1" data-name="第 12 首歌曲"><span>第 12 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/pea5j15ava3n56ip1xl7m/13-13.mp3?rlkey=z358ns5no5ks8ocn3y2f2rgn5&st=bwjnq7tm&raw=1" data-name="第 13 首歌曲"><span>第 13 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/h8csww81rdlop7st33ttn/14-14.mp3?rlkey=54h6kzh3h44p7xpooj7m27l8z&st=y7hgrh6h&raw=1" data-name="第 14 首歌曲"><span>第 14 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/qc9jeu73uq153cva5t2aw/15-15.mp3?rlkey=4vgg2wjor216bgpeph7rlqfqk&st=sdfg79dn&raw=1" data-name="第 15 首歌曲"><span>第 15 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/a9pwfvefph7kmzetyhmgd/16-16.mp3?rlkey=619o0hieig0red3vmwxknxsw5&st=hly13b6s&raw=1" data-name="第 16 首歌曲"><span>第 16 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/w00vprb79qp6dro6lhux4/17-17.mp3?rlkey=mg9745dubofkp5tgealmrixk1&st=hwhm7evt&raw=1" data-name="第 17 首歌曲"><span>第 17 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/sb1z96vverk2plwqqoh6l/18-18.mp3?rlkey=ibpi1oalo55o1dbegxifok9ji&st=43p38dwz&raw=1" data-name="第 18 首歌曲"><span>第 18 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/t7f9uzk5tg4d65zmkbtg6/19-19.mp3?rlkey=bquc0illtrj1pyrmjgz1o8v5p&st=rgg12oky&raw=1" data-name="第 19 首歌曲"><span>第 19 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/k4dj41z1fvbkzadwair35/20-20.mp3?rlkey=slnoy2be0j09w2rffdd2excjz&st=00jej40x&raw=1" data-name="第 20 首歌曲"><span>第 20 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/zm5sstodjczewgn4muby3/21-21.mp3?rlkey=8jdv40rbkgfvbri90xp9rc7a9&st=t1g11cj6&raw=1" data-name="第 21 首歌曲"><span>第 21 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/zhj2mshmv9hrjjinib5qg/22-22.mp3?rlkey=lwsfm3lnhcuhe0kkj40v6rlo1&st=w7wmm6k0&raw=1" data-name="第 22 首歌曲"><span>第 22 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/je8cticc1jpu0ihslhbx4/23-23.mp3?rlkey=op2aa1ez2a5nq72z79jou85x2&st=l0ydxpky&raw=1" data-name="第 23 首歌曲"><span>第 23 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/zz2cym8g2t5tjlov6jqtc/24-24.mp3?rlkey=md23as33zq6onnj0ckg7vh3xh&st=gr9s9vtk&raw=1" data-name="第 24 首歌曲"><span>第 24 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/tg6wv13sbu2mii9wr7lyg/25-25.mp3?rlkey=0mwbcbrl9bmepy5gatbx81aqq&st=z8svrzyv&raw=1" data-name="第 25 首歌曲"><span>第 25 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/xlb0meagrbzq7mfkdfaqz/26-26.mp3?rlkey=vj9a7976nocyxur7q20vjkr0o&st=1ygjbtyf&raw=1" data-name="第 26 首歌曲"><span>第 26 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/fvml0fz9murv41g8vwyn4/27-27.mp3?rlkey=fn3m35q0ukwuewf2y5jt8se2u&st=7doosrkn&raw=1" data-name="第 27 首歌曲"><span>第 27 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/g77apst78s5prnazqb8gl/28-28.mp3?rlkey=vexjdddv7kmcyyyej88sgrc6m&st=7wpf94bz&raw=1" data-name="第 28 首歌曲"><span>第 28 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/49cqbzrpe3ucyyjai51fm/29-29.mp3?rlkey=zocv5n1i5tcn7u8djk2tc1d7f&st=7oi3vlug&raw=1" data-name="第 29 首歌曲"><span>第 29 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/9euogdgkmvc2odom8djpv/30-30.mp3?rlkey=uckpgl4rve4guctpsejccyyou&st=32yntq56&raw=1" data-name="第 30 首歌曲"><span>第 30 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/7kvdtzqrpcpnwy9tqn4y1/31-31.mp3?rlkey=szb1uv5si9i8jbh55bahktpyr&st=qdhh7mus&raw=1" data-name="第 31 首歌曲"><span>第 31 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/x0igfmzj9sn25z10h4sby/32-32.mp3?rlkey=c4h32qeht404yct2el3854g4v&st=t0rf515o&raw=1" data-name="第 32 首歌曲"><span>第 32 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/9ezd6fhtzlnqdom9cpq07/33-33.mp3?rlkey=42tautynayrb0v8gvapnpm4hk&st=a1jninrk&raw=1" data-name="第 33 首歌曲"><span>第 33 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/oyjpvcmo0i7nn878197vz/34-34.mp3?rlkey=bdojmkf9enl6o5z15uwy359ck&st=q8cxaynm&raw=1" data-name="第 34 首歌曲"><span>第 34 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/frsskjevh0ikbh5y70ik1/35-35.mp3?rlkey=o36kzefeol5gf5abapsjnf28x&st=h6hdayx9&raw=1" data-name="第 35 首歌曲"><span>第 35 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/lk5krooq48mp713tntnup/36-36.mp3?rlkey=jczw5yfifkr7nymkr2je70jek&st=i7hduclo&raw=1" data-name="第 36 首歌曲"><span>第 36 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/tyo35wb12xjpot60vlesd/37-37.mp3?rlkey=hzjd468h136xl9dlxzrg3tgaq&st=bn4lcvdq&raw=1" data-name="第 37 首歌曲"><span>第 37 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/8ab2siiwuwgvdc5yt0n77/38-38.mp3?rlkey=xgyh2knm7pgoce14vizox47xu&st=1jltp0r9&raw=1" data-name="第 38 首歌曲"><span>第 38 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/0z6h8ixl1f8tn0jkduarx/39-39.mp3?rlkey=iqlm9zurkhev5iidjgy32endw&st=cd3ust0e&raw=1" data-name="第 39 首歌曲"><span>第 39 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/8mo8ebz1p5kpehhnpp5fs/40-40.mp3?rlkey=19xnd6lea1irqsjgs9iazment&st=m4c7q5e6&raw=1" data-name="第 40 首歌曲"><span>第 40 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/587r7c2ss1928mtqk9avu/41-41.mp3?rlkey=iru9nailzyuwnzevri803sayn&st=huczd32y&raw=1" data-name="第 41 首歌曲"><span>第 41 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/5fx2y24zysk87nrknnkfp/42-42.mp3?rlkey=i3grexsb2b2tyfgfn6ydj3d8w&st=4htd26tz&raw=1" data-name="第 42 首歌曲"><span>第 42 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/l0lbuunn52fu2ib5e91fp/43-43.mp3?rlkey=q5bsbxkccndvpxb7y6xs8pfpm&st=00jp6b3g&raw=1" data-name="第 43 首歌曲"><span>第 43 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/p7mx3y786yi7h46l4pjyy/44-44.mp3?rlkey=9vcfhw6kyeuugmbqzv2rihjp2&st=03iryfle&raw=1" data-name="第 44 首歌曲"><span>第 44 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/6w9wt387p7b26jz6y1gqu/45-45.mp3?rlkey=isrw8u18za0yednajcdgdqj6c&st=pli1hp95&raw=1" data-name="第 45 首歌曲"><span>第 45 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/31oby3cgu8um8idub0ks9/46-46.mp3?rlkey=nzmrzbie4x4hxomgmbwny3335&st=uaf7kp24&raw=1" data-name="第 46 首歌曲"><span>第 46 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/8rgueg4im3i69g6agrcja/47-47.mp3?rlkey=27x5ejjmbjbvov1jvv1x94s7b&st=hq62quc4&raw=1" data-name="第 47 首歌曲"><span>第 47 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/dvcmk8kxfdiqcki8fibrj/48-48.mp3?rlkey=5vbo0hd7ifw5g6a6pkrai8965&st=o17sudjz&raw=1" data-name="第 48 首歌曲"><span>第 48 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/ozxse2udq587en1y4mzd2/49-49.mp3?rlkey=c33v8pq2v9q9ogk8gv0ntovka&st=f03wqxh9&raw=1" data-name="第 49 首歌曲"><span>第 49 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/yv5gkoecb81811kwljj1q/50-50.mp3?rlkey=59en2xb6cuebf2lkt792vqskn&st=vkg60x25&raw=1" data-name="第 50 首歌曲"><span>第 50 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/3e9jc25rklxg5roe1ml4v/51-51.mp3?rlkey=etlxkdbqdcqr6nl3uxk9uf3zb&st=eo6p0601&raw=1" data-name="第 51 首歌曲"><span>第 51 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/tcgx1xtj8u9ritgjod4dw/52-52.mp3?rlkey=tqox2phhkbet9ykwlhzdiw4xu&st=xjxjcjsp&raw=1" data-name="第 52 首歌曲"><span>第 52 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/1grj9sltome8vpit5keuj/53-53.mp3?rlkey=nmjtr7c5uugsop89ctv5pjm7a&st=8bbx1nae&raw=1" data-name="第 53 首歌曲"><span>第 53 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/h57jxvboqv1bfewm6ta3h/54-54.mp3?rlkey=37okjgqb3fdngubmrkq9ynetm&st=up5y89v0&raw=1" data-name="第 54 首歌曲"><span>第 54 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/sxywpy1sbjnwrgwcxumz3/55-55.mp3?rlkey=kdsmh72nkbk71rcm8y1bu1ura&st=wj5a7act&raw=1" data-name="第 55 首歌曲"><span>第 55 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/psifwrma9uhjvl1ehfgw3/56-56.mp3?rlkey=4c2nl2suibuprd6tbrbo3ri0g&st=1hk3on7b&raw=1" data-name="第 56 首歌曲"><span>第 56 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/xj5u23yid8nk43770pkbm/57-57.mp3?rlkey=nc93ac898mqdxpj323zo4chv8&st=fyg5xifw&raw=1" data-name="第 57 首歌曲"><span>第 57 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/u3mexezkyjvld8qaek3ua/58-58.mp3?rlkey=b1nonjj1eky6q5dpyr6apx0im&st=wzsmpjfn&raw=1" data-name="第 58 首歌曲"><span>第 58 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/q1r7iqajie7j3yp7axzp3/59-59.mp3?rlkey=bgqpxkbmlo5yzd4te6vb8phzz&st=knxx505n&raw=1" data-name="第 59 首歌曲"><span>第 59 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/g59k28s3chhu198sint6s/60-60.mp3?rlkey=23f24nafwfvovbtyrqmk0fwk3&st=5p4q3j8i&raw=1" data-name="第 60 首歌曲"><span>第 60 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/md5xyuifzggdhg6ovmw1b/61-61.mp3?rlkey=x7s61ykbkl8dugr2z7e212k04&st=f7z3si3r&raw=1" data-name="第 61 首歌曲"><span>第 61 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/6r1d4l0spz13qduo9ij2f/62-62.mp3?rlkey=k30rxzufxrip3magnwbo01vtd&st=c5c2b8c3&raw=1" data-name="第 62 首歌曲"><span>第 62 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/yrlttub2icbtxg7m4c8xk/63-63.mp3?rlkey=htmbevhcaltow1b2vz00oa38b&st=9h6h3fzu&raw=1" data-name="第 63 首歌曲"><span>第 63 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/76oj8qumgl3ic4l2cc0zz/64-64.mp3?rlkey=e7dom3n4dmtd0czp13zpmspph&st=nmpk3sor&raw=1" data-name="第 64 首歌曲"><span>第 64 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/vjasgzjee4b8zppyehpzz/65-65.mp3?rlkey=ntzclw4761lco22eskbuwaw5s&st=5xvgvu42&raw=1" data-name="第 65 首歌曲"><span>第 65 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/vhjmucsqkylj5d99094ni/66-66.mp3?rlkey=6vtr8ze95mtluyhjgk2yyh4es&st=msql6yyx&raw=1" data-name="第 66 首歌曲"><span>第 66 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/nndvl69orhc0yh1hsgif7/67-67.mp3?rlkey=mcaz2w03fbej8u9i02cg2pxjr&st=mivmfx23&raw=1" data-name="第 67 首歌曲"><span>第 67 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/viuiq2eef3vpsmbtz1w4d/68-68.mp3?rlkey=0y6a7xzoofbzks41ql8xqevra&st=k0sd4jtv&raw=1" data-name="第 68 首歌曲"><span>第 68 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/ybieh3fhtglj8mkyuzf1l/69-69.mp3?rlkey=fmktk8m1qq6633d0lq5d82r7b&st=bvewi5ji&raw=1" data-name="第 69 首歌曲"><span>第 69 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/ew33o58h6aaamnulm0pnk/70-70.mp3?rlkey=f2lqw75co3w74s122dshttaih&st=jjmyn5s2&raw=1" data-name="第 70 首歌曲"><span>第 70 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/i6t2u34ogtpjbo06i86bc/71-71.mp3?rlkey=dplw69rgkvdpkkrygdv99exlp&st=qs2rv950&raw=1" data-name="第 71 首歌曲"><span>第 71 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/xd3nisz47qjpchm7kg6sd/72-72.mp3?rlkey=se9wuh2bg4slfiemfi2iv0tjc&st=fj5rsl0j&raw=1" data-name="第 72 首歌曲"><span>第 72 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/xul2j6kpck3ptmexldjv9/73-73.mp3?rlkey=8yuvtdb91xomabfshot6dav40&st=jokwktas&raw=1" data-name="第 73 首歌曲"><span>第 73 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/zq0sytvg6fdiqnhrt8o3f/74-74.mp3?rlkey=7co7fpvfih1czjl2oih04th9k&st=qslqskqf&raw=1" data-name="第 74 首歌曲"><span>第 74 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/e67vnyzkmid2flf1kw6jb/75-75.mp3?rlkey=asdizjkyxueucx5sex4qnya2h&st=ra2678cb&raw=1" data-name="第 75 首歌曲"><span>第 75 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/kx5bsp6an2vlgd4j9jlpo/76-76.mp3?rlkey=rs6gc0ztiw9ridljoi4gjtxa5&st=4wc8iadd&raw=1" data-name="第 76 首歌曲"><span>第 76 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/4onw8ierpqghowvabrfjq/77-77.mp3?rlkey=1vcfccjlrsi3x7nusup3bf2je&st=ii8b6kfj&raw=1" data-name="第 77 首歌曲"><span>第 77 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/xrgl5qt39zjcgs3ndz04n/78-78.mp3?rlkey=mtdxaoda0thggvbnhxcj3n816&st=ug79ariu&raw=1" data-name="第 78 首歌曲"><span>第 78 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/c6y95b1g6p64w3j83juct/79-79.mp3?rlkey=zlfw03yf94pd4v7z60f82uua3&st=yeh18uaj&raw=1" data-name="第 79 首歌曲"><span>第 79 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/0fudnj6k34afvc0s6m1pr/80-80.mp3?rlkey=yxu7ccao99ocmj58mn4beutf9&st=wqqz9bai&raw=1" data-name="第 80 首歌曲"><span>第 80 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/ay9xquq1x1mgwvfwump84/81-81.mp3?rlkey=89f46mfjlvguqew5f5q39s3y9&st=8iblr29r&raw=1" data-name="第 81 首歌曲"><span>第 81 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/4wetnmworlvqvwymdcmf7/82-82.mp3?rlkey=dnq2cj9gmtwndcsrdah450f8u&st=f2nofspe&raw=1" data-name="第 82 首歌曲"><span>第 82 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/rp03r2k2334khb5jccnfw/83-83.mp3?rlkey=s8yr4a1iazj2bswdee72g6qql&st=cx2q4948&raw=1" data-name="第 83 首歌曲"><span>第 83 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/sxw8sfqa62vfije43zkc0/84-84.mp3?rlkey=gb2xo4cekgb8zi778355f1z9f&st=1p9jt3w8&raw=1" data-name="第 84 首歌曲"><span>第 84 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/fet7fs6nn481p8an4r6dd/85-85.mp3?rlkey=d94g1telj1heten4psn94u3du&st=ex5y9qzx&raw=1" data-name="第 85 首歌曲"><span>第 85 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/26q56r4vct0bx4vlhk1x9/86-86.mp3?rlkey=2fypcia3ot0fsxkl6262slrp7&st=hcc79u3f&raw=1" data-name="第 86 首歌曲"><span>第 86 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/o16fzcdqdcwdkas5zf7af/87-87.mp3?rlkey=egruey78xh06sam7lny1qc2i7&st=lcrgvx39&raw=1" data-name="第 87 首歌曲"><span>第 87 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/vgi2mq6ko2j3axj50nmlf/88-88.mp3?rlkey=y1m9g6zplnr2j1anycv5fvxn2&st=uzon2iyr&raw=1" data-name="第 88 首歌曲"><span>第 88 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/dpzhxefud6zed4oxgl7cs/89-89.mp3?rlkey=0kzsk0whyxea35c3ubovgcgme&st=oj7c1vsg&raw=1" data-name="第 89 首歌曲"><span>第 89 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/z3mhoetbxd7v9u325u1ef/90-90.mp3?rlkey=c3lbp6d2ulqb0tmwm2w0niiw1&st=54tprlgh&raw=1" data-name="第 90 首歌曲"><span>第 90 首歌曲</span></label>
+        <label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/a5lemgq7i19pxdiouk1c1/91-91.mp3?rlkey=612jk3h5jn94gfq45ao4m5hbe&st=1kjnz8k2&raw=1" data-name="第 91 首歌曲"><span>第 91 首歌曲</span></label>
+		<label class="song-item"><input type="checkbox" class="song-checkbox" data-src="https://www.dropbox.com/scl/fi/0i38ewauk85rtvof8lsy0/92-92.mp3?rlkey=evrfu4tvzf8fg4kd4v6taabjy&st=qxgib4pd&raw=1" data-name="第 92 首歌曲"><span>第 92 首歌曲</span></label>
     </div>
 </div>
 
